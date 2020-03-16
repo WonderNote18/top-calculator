@@ -1,0 +1,25 @@
+.titleText {
+    font-family: Arial, Helvetica, sans-serif;
+    font-kerning: auto;
+    margin-block-start: 0.33em;
+    margin-block-end: 0.63em;
+}
+
+#titleSection {
+    margin: 0 auto;
+    position: relative;
+    padding: 4px 36px 5px 36px;
+}
+
+#titleContainer {
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+#headerSpacing {
+    margin: 0 auto;
+    padding: 110px 0px 0px 0px;
+    width: 100%;
+    position: relative;
+}
