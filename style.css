@@ -1,0 +1,20 @@
+#titleSection {
+    width: 100%;
+}
+#titleContainer {
+    margin: 0 auto;
+    text-align: center;
+}
+#titleSpacing {
+    padding: 3%
+}
+#calcSection {
+    width: 50%;
+    margin: 0 auto;
+}
+#calcContainer {
+    background-color: darkgrey;
+    border-style: ridge;
+    border-width: 5px;
+    border-color: black;
+}
