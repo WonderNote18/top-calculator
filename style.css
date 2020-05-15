@@ -1,3 +1,13 @@
+.calcText {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em
+}
+.calcFunc {
+    background-color: #D6D65A;
+}
+.calcNum {
+    background-image: radial-gradient(#BBD2C5, #7498AD);
+}
 #titleSection {
     width: 100%;
 }
@@ -10,6 +20,7 @@
 }
 #calcSection {
     width: 50%;
+    height: 30%;
     margin: 0 auto;
 }
 #calcContainer {
@@ -17,4 +28,50 @@
     border-style: ridge;
     border-width: 5px;
     border-color: black;
+    display: grid;
+    grid-template-columns: .8fr .8fr .8fr .65fr;
+    grid-template-rows: 1.2fr 1.4fr 1.4fr 1.4fr 1.4fr 1.6fr;
+    gap: 1px 1px;
+    grid-template-areas: "calcOutput calcOutput calcOutput calcOutput" "calcClear calcMult calcDiv calcSub" "calc7 calc8 calc9 calcAdd" "calc4 calc5 calc6 calcAdd" "calc1 calc2 calc3 calcEnter" "calc0 calc0 calcDecimal calcEnter";
+    padding: 2px;
 }
+#calcOutput {
+    grid-area: calcOutput;
+    font-size: 1.2em;
+    text-align: right;
+    background-color: #efefef;
+    padding: 8px;
+}
+#calc7 { grid-area: calc7; }
+
+#calc8 { grid-area: calc8; }
+
+#calc9 { grid-area: calc9; }
+
+#calc4 { grid-area: calc4; }
+
+#calc5 { grid-area: calc5; }
+
+#calc6 { grid-area: calc6; }
+
+#calc1 { grid-area: calc1; }
+
+#calc2 { grid-area: calc2; }
+
+#calc3 { grid-area: calc3; }
+
+#calc0 { grid-area: calc0; }
+
+#calcDecimal { grid-area: calcDecimal; }
+
+#calcClear { grid-area: calcClear; }
+
+#calcMult { grid-area: calcMult; }
+
+#calcDiv { grid-area: calcDiv; }
+
+#calcSub { grid-area: calcSub; }
+
+#calcAdd { grid-area: calcAdd; }
+
+#calcEnter { grid-area: calcEnter; }

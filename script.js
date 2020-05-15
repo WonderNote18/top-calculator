@@ -1,3 +1,14 @@
+let calcOutput = '0';
+
+function addToOutput(char) {
+    if (calcOutput == '0') {
+        calcOutput = char;
+    } else {
+        calcOutput += char;
+    }
+    document.getElementById('calcOutput').value = calcOutput
+}
+
 function operate(operator, num1, num2) {
     if (operator == "add") {
         add(num1, num2)
