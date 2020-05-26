@@ -52,8 +52,6 @@ function operate(operator, num1, num2) {
         multiply(num1, num2);
     } else if (operator == "/") {
         divide(num1, num2);
-    } else if (operator == "C") {
-        clearData();
     }
     
     if (!divByZero) {
