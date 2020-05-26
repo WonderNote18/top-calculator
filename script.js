@@ -20,7 +20,10 @@ function updateOutputText(status) {
 }
 
 function addToOutput(char) {
-    if (output.includes(' ')) {output = '0';}
+    if (output.includes(' ')) {
+        output = '0';
+        updateOutputText('normal');
+    }
 
     if (output == '0') {
         output = char;
