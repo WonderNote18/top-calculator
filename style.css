@@ -19,20 +19,20 @@
     padding: 3%
 }
 #calcSection {
-    width: 50%;
-    height: 30%;
+    width: 35%;
+    height: 60%;
     margin: 0 auto;
 }
 #calcContainer {
     background-color: darkgrey;
     border-style: ridge;
-    border-width: 5px;
-    border-color: black;
+    border-width: 16px;
+    border-color: darkcyan;
     display: grid;
-    grid-template-columns: .8fr .8fr .8fr .65fr;
-    grid-template-rows: 1.2fr 1.4fr 1.4fr 1.4fr 1.4fr 1.6fr;
+    grid-template-columns: 1fr 1fr 1fr .55fr;
+    grid-template-rows: .6fr .6fr 1.6fr 1.8fr 1.8fr 1.8fr 1.9fr;
     gap: 1px 1px;
-    grid-template-areas: "calcOutput calcOutput calcOutput calcOutput" "calcClear calcMult calcDiv calcSub" "calc7 calc8 calc9 calcAdd" "calc4 calc5 calc6 calcAdd" "calc1 calc2 calc3 calcEnter" "calc0 calc0 calcDecimal calcEnter";
+    grid-template-areas: "calcOutput calcOutput calcOutput calcOutput" "calcOutput calcOutput calcOutput calcOutput" "calcClear calcMult calcDiv calcSub" "calc7 calc8 calc9 calcAdd" "calc4 calc5 calc6 calcAdd" "calc1 calc2 calc3 calcEnter" "calc0 calc0 calcDecimal calcEnter";
     padding: 2px;
 }
 #calcOutput {
