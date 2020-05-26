@@ -13,13 +13,13 @@
         <div id="titleSpacing"></div>
         <div id="calcSection">
             <div id="calcContainer">
-                <input type="text" class='calcText' id="calcOutput" value="0" readonly>
-                <button class='calcText calcFunc' id='calcClear'>C</button>
-                <button class='calcText calcFunc' id='calcDiv'>/</button>
-                <button class='calcText calcFunc' id='calcMult'>*</button>
-                <button class='calcText calcFunc' id='calcSub'>-</button>
-                <button class='calcText calcFunc' id='calcAdd'>+</button>
-                <button class='calcText calcFunc' id='calcEnter'>=</button>
+                <input type="text" class='calcText normal' id="calcOutput" value="0" readonly>
+                <button class='calcText calcFunc' id='calcClear' onclick='clearData()'>C</button>
+                <button class='calcText calcFunc' id='calcDiv' onclick='assignOperator(this.textContent)'>/</button>
+                <button class='calcText calcFunc' id='calcMult' onclick='assignOperator(this.textContent)'>*</button>
+                <button class='calcText calcFunc' id='calcSub' onclick='assignOperator(this.textContent)'>-</button>
+                <button class='calcText calcFunc' id='calcAdd' onclick='assignOperator(this.textContent)'>+</button>
+                <button class='calcText calcFunc' id='calcEnter' onclick='operate()'>=</button>
                 <button class='calcText calcNum' id='calc7' onclick='addToOutput(this.textContent)'>7</button>
                 <button class='calcText calcNum' id='calc8' onclick='addToOutput(this.textContent)'>8</button>
                 <button class='calcText calcNum' id='calc9' onclick='addToOutput(this.textContent)'>9</button>
