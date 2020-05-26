@@ -38,7 +38,6 @@ function assignOperator(operator) {
         operate(op, num1, num2);
     }
     op = operator;
-    output += ' ' + operator;
     updateOutputText('operator');
 }
 
