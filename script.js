@@ -59,6 +59,9 @@ function operate(operator, num1, num2) {
         } else {
             updateOutputText('resultNegative');
         }
+        num1 = result;
+        num2 = Number;
+        result = 0;
         
     } else {
         divByZero = false;
