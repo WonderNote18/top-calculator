@@ -8,6 +8,31 @@
 .calcNum {
     background-image: radial-gradient(#BBD2C5, #7498AD);
 }
+.normal {
+    color: #343434;
+    font-weight: normal;
+    font-style: normal;
+}
+.operator {
+    color: #1725f9;
+    font-weight: bolder;
+    font-style: normal;
+}
+.resultPositive {
+    color: #298200;
+    font-weight: bolder;
+    font-style: normal;
+}
+.resultNegative {
+    color: #ee0202;
+    font-weight: bolder;
+    font-style: normal;
+}
+.error {
+    color: #ee0202;
+    font-weight: bolder;
+    font-style: italic;
+}
 #titleSection {
     width: 100%;
 }
