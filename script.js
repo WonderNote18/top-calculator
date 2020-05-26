@@ -20,7 +20,7 @@ function updateOutputText(status) {
 }
 
 function addToOutput(char) {
-    if (output.includes(' ')) {
+    if (document.getElementById('calcOutput').value.includes(' ')) {
         output = '0';
         updateOutputText('normal');
     }
