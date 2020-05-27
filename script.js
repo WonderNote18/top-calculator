@@ -1,7 +1,7 @@
 let output = '0';
 let num1 = Number;
 let num2 = Number;
-let op = '';
+let operator = '';
 let result = 0;
 let divByZero = false;
 
@@ -11,16 +11,20 @@ function updateOutputText(status) {
     if (status == 'normal') {
         document.getElementById('calcOutput').value = output;
     } else if (status == 'operator') {
-        document.getElementById('calcOutput').value = output + ' ' + op;
+        document.getElementById('calcOutput').value = output + ' ' + operator;
     } else if ((status == 'resultPositive') || (status == 'resultNegative')) {
-        document.getElementById('calcOutput').value = num1 +  ' ' + op + ' ' + num2 + ' = ' + result;
+        document.getElementById('calcOutput').value = num1 +  ' ' + operator + ' ' + num2 + ' = ' + result;
+        num1 = result;
+        num2 = 0;
+        result = 0;
     } else if (status == 'error') {
         document.getElementById('calcOutput').value = "E R R O R";
     }
 }
 
 function addToOutput(char) {
-    if (document.getElementById('calcOutput').value.includes(' ')) {
+    let currentOutput = document.getElementById('calcOutput').value;
+    if (currentOutput.includes(' ')) {
         output = '0';
         updateOutputText('normal');
     }
@@ -34,68 +38,67 @@ function addToOutput(char) {
     updateOutputText('normal');
 }
 
-function assignOperator(operator) {
+function assignOperator(operation) {
     if (typeof(num1) == 'function') {
         num1 = parseFloat(output);
-    } else if (typeof(num2) == 'function') {
-        operate(op, num1, num2);
+        num2 = 0;
+    } else {
+        operate();
     }
-    op = operator;
+
+    operator = operation;
     updateOutputText('operator');
 }
 
-function operate(operator, num1, num2) {
+function operate() {
     num2 = parseFloat(output);
     if (operator == "+") {
-        add(num1, num2);
+        add();
     } else if (operator == '-') {
-        subtract(num1, num2);
+        subtract();
     } else if (operator == "*") {
-        multiply(num1, num2);
+        multiply();
     } else if (operator == "/") {
-        divide(num1, num2);
+        divide();
     }
     
-    if (!divByZero) {
-        if (result >= 0) {
-            updateOutputText('resultPositive');
-        } else {
-            updateOutputText('resultNegative');
-        }
-        num1 = result;
-        num2 = Number;
-        result = 0;
-        
-    } else {
+    if (divByZero == true) {
         divByZero = false;
         clearData();
         updateOutputText('error');
+        return;
+    }
+
+    if (result >= 0) {
+        updateOutputText('resultPositive');
+    } else {
+        updateOutputText('resultNegative');
     }
 }
 
 function clearData() {
-    let output = '0';
-    let num1 = Number;
-    let num2 = Number;
-    let op = '';
-    let result = 0;
-    let divByZero = false;
+    output = '0';
+    num1 = Number;
+    num2 = Number;
+    operator = '';
+    result = 0;
+    divByZero = false;
     updateOutputText('normal');
 }
 
-function add(num1, num2) {
+function add() {
     result = num1 + num2;
 }
 
-function subtract(num1, num2) {
+function subtract() {
     result = num1 - num2;
 }
 
-function multiply(num1, num2) {
+function multiply() {
     result = num1 * num2;
 }
 
-function divide(num1, num2) {
+function divide() {
     if ((num1 == 0) && (num2 == 0)) {
         divByZero = true;
     } else {
