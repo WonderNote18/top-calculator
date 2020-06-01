@@ -44,9 +44,9 @@
     padding: 3%
 }
 #calcSection {
-    width: 35%;
-    height: 60%;
+    width: 40%;
     margin: 0 auto;
+    display: flex;
 }
 #calcContainer {
     background-color: darkgrey;
@@ -59,13 +59,16 @@
     gap: 1px 1px;
     grid-template-areas: "calcOutput calcOutput calcOutput calcOutput" "calcOutput calcOutput calcOutput calcOutput" "calcClear calcMult calcDiv calcSub" "calc7 calc8 calc9 calcAdd" "calc4 calc5 calc6 calcAdd" "calc1 calc2 calc3 calcEnter" "calc0 calc0 calcDecimal calcEnter";
     padding: 2px;
+    width: 100%;
+    align-content: center;
 }
 #calcOutput {
     grid-area: calcOutput;
     font-size: 1.2em;
     text-align: right;
     background-color: #efefef;
-    padding: 8px;
+    width: 98.5%;
+    padding: 0;
 }
 #calc7 { grid-area: calc7; }
 
