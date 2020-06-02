@@ -1,4 +1,3 @@
-let output = '0';
 let num1 = Number;
 let num2 = Number;
 let operator = '';
@@ -8,23 +7,18 @@ let divByZero = false;
 
 function updateOutputText(status) {
     document.getElementById('calcOutput').className = 'calcText ' + status;
-    if (status == 'normal') {
-        document.getElementById('calcOutput').value = output;
-    } else if (status == 'operator') {
-        document.getElementById('calcOutput').value = output + ' ' + operator;
+    if (status == 'operator') {
+        document.getElementById('calcOutput').value = num1 + ' ' + operator;
     } else if ((status == 'resultPositive') || (status == 'resultNegative')) {
         document.getElementById('calcOutput').value = num1 +  ' ' + operator + ' ' + num2 + ' = ' + result;
-        num1 = result;
-        num2 = 0;
-        result = 0;
     } else if (status == 'error') {
         document.getElementById('calcOutput').value = "E R R O R";
     }
 }
 
 function addToOutput(char) {
-    let currentOutput = document.getElementById('calcOutput').value;
-    if (currentOutput.includes(' ')) {
+    let output = document.getElementById('calcOutput').value;
+    if (output.includes(' ')) {
         output = '0';
         updateOutputText('normal');
     }
@@ -35,14 +29,16 @@ function addToOutput(char) {
         output += char;
     }
 
+    document.getElementById('calcOutput').value = output;
+
     updateOutputText('normal');
 }
 
 function assignOperator(operation) {
+    let output = document.getElementById('calcOutput').value;
     if (typeof(num1) == 'function') {
-        num1 = parseFloat(output);
-        num2 = 0;
-    } else {
+        num1 = parseFloat(document.getElementById('calcOutput').value);
+    } else if((typeof(num2) == 'function') && (output.includes(' ') == false)) {
         operate();
     }
 
@@ -51,7 +47,7 @@ function assignOperator(operation) {
 }
 
 function operate() {
-    num2 = parseFloat(output);
+    num2 = parseFloat(document.getElementById('calcOutput').value);
     if (operator == "+") {
         add();
     } else if (operator == '-') {
@@ -74,10 +70,14 @@ function operate() {
     } else {
         updateOutputText('resultNegative');
     }
+    num1 = result;
+    num2 = Number;
+    result = 0;
+    operator = '';
 }
 
 function clearData() {
-    output = '0';
+    document.getElementById('calcOutput').value = '0';
     num1 = Number;
     num2 = Number;
     operator = '';
