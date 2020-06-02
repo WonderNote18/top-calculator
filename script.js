@@ -4,6 +4,149 @@ let operator = '';
 let result = 0;
 let divByZero = false;
 
+document.addEventListener('keypress', function(event) {
+    let keyPressed = event.which;
+
+    switch(keyPressed) {
+        case 99:
+            document.getElementById('calcClear').click();
+            event.preventDefault();
+            break;
+        case 67:
+            document.getElementById('calcClear').click();
+            event.preventDefault();
+            break;
+        case 47:
+            document.getElementById('calcDiv').click();
+            event.preventDefault();
+            break;
+        case 111:
+            document.getElementById('calcDiv').click();
+            event.preventDefault();
+            break;
+        case 42:
+            document.getElementById('calcMult').click();
+            event.preventDefault();
+            break;
+        case 106:
+            document.getElementById('calcMult').click();
+            event.preventDefault();
+            break;
+        case 45:
+            document.getElementById('calcSub').click();
+            event.preventDefault();
+            break;
+        case 109:
+            document.getElementById('calcSub').click();
+            event.preventDefault();
+            break;
+        case 43:
+            document.getElementById('calcAdd').click();
+            event.preventDefault();
+            break;
+        case 107:
+            document.getElementById('calcAdd').click();
+            event.preventDefault();
+            break;
+        case 13:
+            document.getElementById('calcEnter').click();
+            event.preventDefault();
+            break;
+        case 43:
+            document.getElementById('calcEnter').click();
+            event.preventDefault();
+            break;
+        case 55:
+            document.getElementById('calc7').click();
+            event.preventDefault();
+            break;
+        case 103:
+            document.getElementById('calc7').click();
+            event.preventDefault();
+            break;
+        case 56:
+            document.getElementById('calc8').click();
+            event.preventDefault();
+            break;
+        case 104:
+            document.getElementById('calc8').click();
+            event.preventDefault();
+            break;
+        case 57:
+            document.getElementById('calc9').click();
+            event.preventDefault();
+            break;
+        case 105:
+            document.getElementById('calc9').click();
+            event.preventDefault();
+            break;
+        case 52:
+            document.getElementById('calc4').click();
+            event.preventDefault();
+            break;
+        case 100:
+            document.getElementById('calc4').click();
+            event.preventDefault();
+            break;
+        case 53:
+            document.getElementById('calc5').click();
+            event.preventDefault();
+            break;
+        case 101:
+            document.getElementById('calc5').click();
+            event.preventDefault();
+            break;
+        case 54:
+            document.getElementById('calc6').click();
+            event.preventDefault();
+            break;
+        case 102:
+            document.getElementById('calc6').click();
+            event.preventDefault();
+            break;
+        case 49:
+            document.getElementById('calc1').click();
+            event.preventDefault();
+            break;
+        case 97:
+            document.getElementById('calc1').click();
+            event.preventDefault();
+            break;
+        case 50:
+            document.getElementById('calc2').click();
+            event.preventDefault();
+            break;
+        case 98:
+            document.getElementById('calc2').click();
+            event.preventDefault();
+            break;
+        case 51:
+            document.getElementById('calc3').click();
+            event.preventDefault();
+            break;
+        case 99:
+            document.getElementById('calc3').click();
+            event.preventDefault();
+            break;
+        case 48:
+            document.getElementById('calc0').click();
+            event.preventDefault();
+            break;
+        case 96:
+            document.getElementById('calc0').click();
+            event.preventDefault();
+            break;
+        case 46:
+            document.getElementById('calcDecimal').click();
+            event.preventDefault();
+            break;
+        case 110:
+            document.getElementById('calcDecimal').click();
+            event.preventDefault();
+            break;
+    }
+})
+
 
 function updateOutputText(status) {
     document.getElementById('calcOutput').className = 'calcText ' + status;
@@ -18,9 +161,9 @@ function updateOutputText(status) {
 
 function addToOutput(char) {
     let output = document.getElementById('calcOutput').value;
-    if (output.includes(' ')) {
+    if ((char == '.') && (output.contains('.'))) {}
+    if ((isNaN(output)) || (output == "E R R O R")) {
         output = '0';
-        updateOutputText('normal');
     }
 
     if (output == '0') {
@@ -36,6 +179,10 @@ function addToOutput(char) {
 
 function assignOperator(operation) {
     let output = document.getElementById('calcOutput').value;
+    if (output == "E R R O R") {
+        return
+    }
+
     if (typeof(num1) == 'function') {
         num1 = parseFloat(document.getElementById('calcOutput').value);
     } else if((typeof(num2) == 'function') && (output.includes(' ') == false)) {
@@ -58,7 +205,7 @@ function operate() {
         divide();
     }
     
-    if (divByZero == true) {
+    if ((divByZero == true) || (typeof(num1) == 'function') || (typeof(num2) == 'function')) {
         divByZero = false;
         clearData();
         updateOutputText('error');
@@ -73,7 +220,6 @@ function operate() {
     num1 = result;
     num2 = Number;
     result = 0;
-    operator = '';
 }
 
 function clearData() {
