@@ -147,15 +147,24 @@ document.addEventListener('keypress', function(event) {
     }
 })
 
-
 function updateOutputText(status) {
     document.getElementById('calcOutput').className = 'calcText ' + status;
+    document.getElementById('mainSection').className = '';
+    
     if (status == 'operator') {
         document.getElementById('calcOutput').value = num1 + ' ' + operator;
     } else if ((status == 'resultPositive') || (status == 'resultNegative')) {
         document.getElementById('calcOutput').value = num1 +  ' ' + operator + ' ' + num2 + ' = ' + result;
     } else if (status == 'error') {
         document.getElementById('calcOutput').value = "E R R O R";
+    }
+
+    if (status == 'operator') {
+        document.getElementById('mainSection').className = 'bgOperator';
+    } else if (status == 'resultPositive') {
+        document.getElementById('mainSection').className = 'bgPositive';
+    } else if ((status == 'resultNegative') || (status == 'error')) {
+        document.getElementById('mainSection').className = 'bgNegative';
     }
 }
 

@@ -1,3 +1,9 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
 .calcText {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em
@@ -33,19 +39,34 @@
     font-weight: bolder;
     font-style: italic;
 }
-#titleSection {
+.bgOperator {
+    background-color: #1725f95c;
+}
+.bgPositive {
+    background-color: #29820069;
+}
+.bgNegative {
+    background-color: #ee020278;
+}
+.footerText {
+    font-family: Georgia, serif;
+    font-size: 0.75em;
+    color: #ececec;
+    font-weight: bold;
+}
+#mainSection{
+    min-height: 100%;
+    height: auto !important;
+    margin-bottom: -48px;
     width: 100%;
 }
-#titleContainer {
-    margin: 0 auto;
-    text-align: center;
-}
 #titleSpacing {
-    padding: 1%;
+    height: 24px;
 }
 #calcSection {
-    width: 35%;
+    width: 370px;
     margin: auto;
+    position: relative;
 }
 #calcContainer {
     background-color: darkgrey;
@@ -102,3 +123,30 @@
 #calcAdd { grid-area: calcAdd; }
 
 #calcEnter { grid-area: calcEnter; }
+
+#footerSection {
+    height: 44px;
+    position: fixed;
+    width: 100%;
+}
+#footerContainer {
+    height: 48px;
+    border: 8px ridge #468b00;
+    background-color: #00468b;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    min-height: calc(100vh-44px);
+}
+#footerTitle {
+    margin: 0px;
+    padding: 9px 0px 9px 9px;
+    float: left;
+  }
+#footerLink {
+    margin: 0px;
+    padding: 9px 9px 9px 0px;
+    float: right;
+    text-decoration: underline;
+  }

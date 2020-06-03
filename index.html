@@ -5,34 +5,39 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="titleSection">
-            <div id="titleContainer">
-                <h2 class="titleText">Calculator</h2>
+        <div id="mainSection">
+            <div id="calcSection">
+                <div id="calcContainer">
+                    <input type="text" class='calcText normal' id="calcOutput" value="0" readonly>
+                    <button class='calcText calcFunc' id='calcClear' onclick='clearData()'>C</button>
+                    <button class='calcText calcFunc' id='calcDiv' onclick='assignOperator(this.textContent)'>/</button>
+                    <button class='calcText calcFunc' id='calcMult' onclick='assignOperator(this.textContent)'>*</button>
+                    <button class='calcText calcFunc' id='calcSub' onclick='assignOperator(this.textContent)'>-</button>
+                    <button class='calcText calcFunc' id='calcAdd' onclick='assignOperator(this.textContent)'>+</button>
+                    <button class='calcText calcFunc' id='calcEnter' onclick='operate()'>=</button>
+                    <button class='calcText calcNum' id='calc7' onclick='addToOutput(this.textContent)'>7</button>
+                    <button class='calcText calcNum' id='calc8' onclick='addToOutput(this.textContent)'>8</button>
+                    <button class='calcText calcNum' id='calc9' onclick='addToOutput(this.textContent)'>9</button>
+                    <button class='calcText calcNum' id='calc4' onclick='addToOutput(this.textContent)'>4</button>
+                    <button class='calcText calcNum' id='calc5' onclick='addToOutput(this.textContent)'>5</button>
+                    <button class='calcText calcNum' id='calc6' onclick='addToOutput(this.textContent)'>6</button>
+                    <button class='calcText calcNum' id='calc1' onclick='addToOutput(this.textContent)'>1</button>
+                    <button class='calcText calcNum' id='calc2' onclick='addToOutput(this.textContent)'>2</button>
+                    <button class='calcText calcNum' id='calc3' onclick='addToOutput(this.textContent)'>3</button>
+                    <button class='calcText calcNum' id='calc0' onclick='addToOutput(this.textContent)'>0</button>
+                    <button class='calcText calcNum' id='calcDecimal'>.</button>
+                </div>
             </div>
+            <div id="titleSpacing"></div>
         </div>
-        <div id="titleSpacing"></div>
-        <div id="calcSection">
-            <div id="calcContainer">
-                <input type="text" class='calcText normal' id="calcOutput" value="0" readonly>
-                <button class='calcText calcFunc' id='calcClear' onclick='clearData()'>C</button>
-                <button class='calcText calcFunc' id='calcDiv' onclick='assignOperator(this.textContent)'>/</button>
-                <button class='calcText calcFunc' id='calcMult' onclick='assignOperator(this.textContent)'>*</button>
-                <button class='calcText calcFunc' id='calcSub' onclick='assignOperator(this.textContent)'>-</button>
-                <button class='calcText calcFunc' id='calcAdd' onclick='assignOperator(this.textContent)'>+</button>
-                <button class='calcText calcFunc' id='calcEnter' onclick='operate()'>=</button>
-                <button class='calcText calcNum' id='calc7' onclick='addToOutput(this.textContent)'>7</button>
-                <button class='calcText calcNum' id='calc8' onclick='addToOutput(this.textContent)'>8</button>
-                <button class='calcText calcNum' id='calc9' onclick='addToOutput(this.textContent)'>9</button>
-                <button class='calcText calcNum' id='calc4' onclick='addToOutput(this.textContent)'>4</button>
-                <button class='calcText calcNum' id='calc5' onclick='addToOutput(this.textContent)'>5</button>
-                <button class='calcText calcNum' id='calc6' onclick='addToOutput(this.textContent)'>6</button>
-                <button class='calcText calcNum' id='calc1' onclick='addToOutput(this.textContent)'>1</button>
-                <button class='calcText calcNum' id='calc2' onclick='addToOutput(this.textContent)'>2</button>
-                <button class='calcText calcNum' id='calc3' onclick='addToOutput(this.textContent)'>3</button>
-                <button class='calcText calcNum' id='calc0' onclick='addToOutput(this.textContent)'>0</button>
-                <button class='calcText calcNum' id='calcDecimal'>.</button>
+        <footer id="footerSection">
+            <div id="footerContainer">
+                <div id="footerTitle" class='footerText'>Calculator by Hector Almanza</div>
+                <a href="https:\\www.google.com">
+                    <div id="footerLink" class="footerText">View on GitHub</div>
+                </a>
             </div>
-        </div>
+        </footer>
         <script src='script.js'></script>
     </body>
 </html>
