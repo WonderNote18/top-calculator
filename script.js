@@ -3,6 +3,7 @@ let num2 = Number;
 let operator = '';
 let result = 0;
 let divByZero = false;
+let longResult = false;
 
 document.addEventListener('keypress', function(event) {
     let keyPressed = event.which;
@@ -153,30 +154,36 @@ function updateOutputText(status) {
     
     if (status == 'operator') {
         document.getElementById('calcOutput').value = num1 + ' ' + operator;
+        document.getElementById('mainSection').className = 'bgOperator';
     } else if ((status == 'resultPositive') || (status == 'resultNegative')) {
-        document.getElementById('calcOutput').value = num1 +  ' ' + operator + ' ' + num2 + ' = ' + result;
+        if (longResult == false) {
+            document.getElementById('calcOutput').value = num1 +  ' ' + operator + ' ' + num2 + ' = ' + result;
+        } else if (longResult == true) {
+            document.getElementById('calcOutput').value = '= ' + result;
+            longResult = false;
+        }
+        if (status == 'resultPositive') {
+            document.getElementById('mainSection').className = 'bgPositive';
+        } else if (status == 'resultNegative') {
+            document.getElementById('mainSection').className = 'bgNegative';
+        }
     } else if (status == 'error') {
         document.getElementById('calcOutput').value = "E R R O R";
-    }
-
-    if (status == 'operator') {
-        document.getElementById('mainSection').className = 'bgOperator';
-    } else if (status == 'resultPositive') {
-        document.getElementById('mainSection').className = 'bgPositive';
-    } else if ((status == 'resultNegative') || (status == 'error')) {
         document.getElementById('mainSection').className = 'bgNegative';
     }
 }
 
 function addToOutput(char) {
     let output = document.getElementById('calcOutput').value;
-    if ((char == '.') && (output.contains('.'))) {}
+    if ((char == '.') && (output.includes('.'))) {}
     if ((isNaN(output)) || (output == "E R R O R")) {
         output = '0';
     }
 
     if (output == '0') {
         output = char;
+    } else if ((char == '.') && (output.includes('.') == false)) {
+        output += char + '0';
     } else {
         output += char;
     }
@@ -212,6 +219,11 @@ function operate() {
         multiply();
     } else if (operator == "/") {
         divide();
+    }
+
+    resultStr = result.toString();
+    if (resultStr.length >= 14) {
+        longResult = true;
     }
     
     if ((divByZero == true) || (typeof(num1) == 'function') || (typeof(num2) == 'function')) {
