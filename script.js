@@ -175,16 +175,17 @@ function updateOutputText(status) {
 
 function addToOutput(char) {
     let output = document.getElementById('calcOutput').value;
-    if ((char == '.') && (output.includes('.'))) {}
     if ((isNaN(output)) || (output == "E R R O R")) {
         output = '0';
     }
 
     if (output == '0') {
-        output = char;
-    } else if ((char == '.') && (output.includes('.') == false)) {
-        output += char + '0';
-    } else {
+        if (char == '.') {
+            output += char;
+        } else {
+            output = char;
+        }
+    } else if ((char == '.') && (output.includes('.') == true)) {} else {
         output += char;
     }
 
@@ -220,9 +221,14 @@ function operate() {
     } else if (operator == "/") {
         divide();
     }
-
+    
     resultStr = result.toString();
-    if (resultStr.length >= 14) {
+    if ((resultStr.length >= 6) && (resultStr.includes('.'))) {
+        longResult = true;
+        if (resultStr.length >= 15) {
+            result = result.toFixed(15);
+        }
+    } else if (resultStr.length >= 14) {
         longResult = true;
     }
     
