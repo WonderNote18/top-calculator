@@ -223,7 +223,7 @@ function operate() {
     }
     
     resultStr = result.toString();
-    if ((resultStr.length >= 6) && (resultStr.includes('.'))) {
+    if ((resultStr.length >= 8) && (resultStr.includes('.'))) {
         longResult = true;
         if (resultStr.length >= 15) {
             result = result.toFixed(15);
